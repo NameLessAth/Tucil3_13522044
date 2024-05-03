@@ -20,8 +20,6 @@ class Init{
             e.printStackTrace();
         }
     }
-
-    public void solve(String startWord, String destWord){}
 }
 
 class NodeGraf{

@@ -21,10 +21,9 @@ class Main{
             System.out.print("Input pilihan (1/2/3) : "); algo = sc.nextInt();
         }
 
-        if (algo == 2){
-            GBFS tempVar = new GBFS();
-            tempVar.solve(startWord, destWord);
-        }
+        if (algo == 1) UCS.solve(startWord, destWord);
+        else if (algo == 2) GBFS.solve(startWord, destWord);
+        else AStar.solve(startWord, destWord);
 
         sc.close();
     }
