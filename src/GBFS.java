@@ -1,5 +1,3 @@
-package src;
-
 class GBFS extends Init {
     public GBFS(){
         super();
@@ -7,6 +5,6 @@ class GBFS extends Init {
 
     @Override
     public void solve(String startWord, String destWord){
-
+        
     }
 }
