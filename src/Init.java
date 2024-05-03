@@ -8,7 +8,7 @@ import java.util.Scanner;
 class Init{
     public static HashSet<String> Dictionary;
 
-    public Init(){
+    public static void initialize(){
         Init.Dictionary = new HashSet<>();
         try {
             File objFile = new File("dict.txt");
@@ -19,6 +19,13 @@ class Init{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void filter(int lengthword){
+        HashSet<String> tempvar = new HashSet<>();
+        for (String dictionary : Init.Dictionary) {
+            if (dictionary.length() == lengthword) tempvar.add(dictionary);
+        } Init.Dictionary = tempvar;
     }
 }
 
