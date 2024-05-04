@@ -4,11 +4,9 @@ class Main{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Init.initialize();
+
         System.out.print("Masukkan String Awal : "); String startWord = sc.nextLine();
         System.out.print("Masukkan String Akhir : "); String destWord = sc.nextLine();
-
-        if (!Init.hasNeighbour(destWord)) System.out.println("jembut");
-
         while (startWord.length() != destWord.length() || startWord.equals(destWord) || !Init.Dictionary.contains(startWord) || !Init.Dictionary.contains(destWord) || !Init.hasNeighbour(destWord) || !Init.hasNeighbour(startWord)){
             if (startWord.equals(destWord)) System.out.println("String start dan destinasi sama! Tolong masukkan ulang input.");
             else if (!Init.Dictionary.contains(startWord) || !Init.Dictionary.contains(destWord)) System.out.println("String start/destinasi tidak terdaftar di dictionary! Tolong masukkan ulang input.");
@@ -17,9 +15,8 @@ class Main{
             System.out.print("Masukkan String Awal : "); startWord = sc.nextLine();
             System.out.print("Masukkan String Akhir : "); destWord = sc.nextLine();
         }
-        System.out.println(Init.Dictionary.size());
+    
         Init.filter(startWord.length());
-        System.out.println(Init.Dictionary.size());
 
         System.out.println("Masukkan Algoritma yang hendak dipilih.");
         System.out.println("1. UCS\n2. GBFS\n3. A*");

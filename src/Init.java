@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.io.File;  
@@ -43,16 +42,6 @@ class Init{
             for (int i = 0; i < arg1.length(); i++) if (arg1.substring(i, i+1).equals(arg2.substring(i, i+1))) dist--;
             return dist;
         }
-    }
-    public static Integer getDistToParent(List<NodeGraf> tempvar, NodeGraf n){
-        NodeGraf jawabannya = n; Integer range = 0;
-        while (jawabannya.getKode() != 1) {
-            for (NodeGraf itr : tempvar){
-                if (itr.getKode() == jawabannya.getParent()){
-                    range++; jawabannya = itr;
-                }
-            }
-        } return range;
     }
     public static void solveHelper(List<NodeGraf> tempvar){
         NodeGraf jawabannya = tempvar.get(tempvar.size()-1);
