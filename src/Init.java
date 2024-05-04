@@ -30,18 +30,20 @@ class Init{
 }
 
 class NodeGraf{
-    private String Parent;
+    private Integer Parent;
+    private Integer Kode;
     private String Simpul;
-    private List<String> Childrens;
+    private static Integer jumlahNode = 0;
 
-    public NodeGraf(String Parent, String Isinya){
+    public NodeGraf(Integer Parent, String Isinya){
         this.Parent = Parent; this.Simpul = Isinya;
+        this.Kode = ++jumlahNode;
     }
-    public void AddChildren(List<String> Childrens){
-        this.Childrens = Childrens;
-    }
-    public String getParent(){
+    public Integer getParent(){
         return this.Parent;
+    }
+    public Integer getKode(){
+        return this.Kode;
     }
     public String getSimpul(){
         return this.Simpul;
