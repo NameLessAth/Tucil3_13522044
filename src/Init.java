@@ -10,7 +10,7 @@ class Init{
     public static void initialize(){
         Init.Dictionary = new HashSet<>();
         try {
-            File objFile = new File("dict.txt");
+            File objFile = new File("../src/dict.txt");
             Scanner reader = new Scanner(objFile);
             while (reader.hasNextLine()) Init.Dictionary.add(reader.nextLine());
             reader.close();
