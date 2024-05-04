@@ -6,29 +6,12 @@ import java.util.HashSet;
 class GBFS {
     public static List<NodeGraf> addPriorQueue(List<NodeGraf> arg1, NodeGraf arg2, String destinasi){
         List<NodeGraf> tempSet = new ArrayList<>(arg1);
-        boolean found = false; int itr = 0, distCurr = Init.getDistance(arg2.getSimpul(), destinasi);
+        boolean found = false; int itr = 0, distCurr = Init.getDistanceToFinish(arg2.getSimpul(), destinasi);
         while (!found && itr < tempSet.size()){
-            if (distCurr < Init.getDistance(tempSet.get(itr).getSimpul(), destinasi)) found = true;
+            if (distCurr < Init.getDistanceToFinish(tempSet.get(itr).getSimpul(), destinasi)) found = true;
             else itr++;
         } tempSet.add(itr, arg2);
         return tempSet;
-    }
-
-    public static void solveHelper(List<NodeGraf> tempvar){
-        NodeGraf jawabannya = tempvar.get(tempvar.size()-1);
-        String Answer = ""; boolean found; Integer itr, steps = 0; 
-        while(jawabannya.getParent() != 0){
-            steps++;
-            Answer = "->" + jawabannya.getSimpul() + Answer;
-            found = false; itr = 0;
-            while (!found && itr < tempvar.size()){
-                if (tempvar.get(itr).getKode() == jawabannya.getParent()){
-                    jawabannya = tempvar.get(itr); found = true;
-                } else itr++;
-            }
-        } Answer = jawabannya.getSimpul() + Answer; 
-        System.out.println("Jumlah steps : " + ++steps);
-        System.out.println(Answer);
     }
     
     public static void solve(String startWord, String destWord){
@@ -53,7 +36,7 @@ class GBFS {
                         tempvar.add(cucu);
                         if (tempstr.equals(destWord)){
                             System.out.println("Visited jml : " + visited);
-                            GBFS.solveHelper(tempvar); return;
+                            Init.solveHelper(tempvar); return;
                         } else queue = GBFS.addPriorQueue(queue, cucu, destWord);            
                     }
                 } 

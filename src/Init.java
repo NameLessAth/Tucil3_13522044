@@ -36,13 +36,39 @@ class Init{
             }
         } return false;
     }
-    public static Integer getDistance(String arg1, String arg2){
+    public static Integer getDistanceToFinish(String arg1, String arg2){
         if (arg1.length() != arg2.length()) return 9999;
         else{
             int dist = arg1.length();
             for (int i = 0; i < arg1.length(); i++) if (arg1.substring(i, i+1).equals(arg2.substring(i, i+1))) dist--;
             return dist;
         }
+    }
+    public static Integer getDistToParent(List<NodeGraf> tempvar, NodeGraf n){
+        NodeGraf jawabannya = n; Integer range = 0;
+        while (jawabannya.getKode() != 1) {
+            for (NodeGraf itr : tempvar){
+                if (itr.getKode() == jawabannya.getParent()){
+                    range++; jawabannya = itr;
+                }
+            }
+        } return range;
+    }
+    public static void solveHelper(List<NodeGraf> tempvar){
+        NodeGraf jawabannya = tempvar.get(tempvar.size()-1);
+        String Answer = ""; boolean found; Integer itr, steps = 0; 
+        while(jawabannya.getParent() != 0){
+            steps++;
+            Answer = "->" + jawabannya.getSimpul() + Answer;
+            found = false; itr = 0;
+            while (!found && itr < tempvar.size()){
+                if (tempvar.get(itr).getKode() == jawabannya.getParent()){
+                    jawabannya = tempvar.get(itr); found = true;
+                } else itr++;
+            }
+        } Answer = jawabannya.getSimpul() + Answer; 
+        System.out.println("Jumlah steps : " + steps);
+        System.out.println(Answer);
     }
 }
 
