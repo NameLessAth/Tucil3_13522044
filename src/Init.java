@@ -18,20 +18,12 @@ class Init{
             e.printStackTrace();
         }
     }
-    public static void filter(int lengthword){
-        HashSet<String> tempvar = new HashSet<>();
-        for (String dictionary : Init.Dictionary) {
-            if (dictionary.length() == lengthword) tempvar.add(dictionary);
-        } Init.Dictionary = tempvar;
-    }
     public static boolean hasNeighbour(String arg){
+        String tempstr;
         for (int i = 0; i < arg.length(); i++){
-            String tempstr = arg.substring(0, i) + arg.substring(i+1);
-            for (String dictionary : Init.Dictionary){
-                if (dictionary.length() == arg.length()){
-                    String tempstr2 = dictionary.substring(0, i) + dictionary.substring(i+1);
-                    if (tempstr.equals(tempstr2) && !dictionary.equals(arg)) return true;
-                }
+            for (char charFit : "abcdefghijklmnopqrstuvwxyz".toCharArray()){
+                tempstr = arg.substring(0, i) + charFit + arg.substring(i+1);
+                if (Init.Dictionary.contains(tempstr) && !tempstr.equals(arg)) return true;
             }
         } return false;
     }

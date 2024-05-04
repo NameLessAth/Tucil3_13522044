@@ -15,8 +15,6 @@ class Main{
             System.out.print("Masukkan String Awal : "); startWord = sc.nextLine();
             System.out.print("Masukkan String Akhir : "); destWord = sc.nextLine();
         }
-    
-        Init.filter(startWord.length());
 
         System.out.println("Masukkan Algoritma yang hendak dipilih.");
         System.out.println("1. UCS\n2. GBFS\n3. A*");
