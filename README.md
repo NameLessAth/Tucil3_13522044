@@ -24,6 +24,20 @@ lalu jalankan Main.class dengan perintah
 ```
 java Main
 ```
+<br /><br /> atau dengan mengcompile manual kembali <br /> <br /><br />
+masuk ke folder src dengan perintah
+```
+cd src
+```
+lalu compile semua java file dengan
+```
+javac AStar.java GBFS.java Init.java Main.java NodeGraf.java UCS.java
+```
+jalankan Main.class dengan perintah
+```
+java Main
+```
+
 ### Input melalui CLI
 Cukup memasukkan input ke CLI sesuai instruksi yang diprint oleh program, masukan berupa String start dan String destinasi, dan Algoritma yang dipilih (UCS/GBFS/A* dengan 1/2/3).
 ### Output CLI message
